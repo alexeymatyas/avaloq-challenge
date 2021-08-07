@@ -1,0 +1,48 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "com.github.node-gradle.node" version "3.0.1"
+}
+
+group = 'com.alekseimatias'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+def clientProjectDir = "${project.projectDir}/src/main/client"
+
+node {
+  version = '15.12.0'
+  npmVersion = '7.6.3'
+  download = true
+
+  nodeProjectDir = file(clientProjectDir)
+}
+
+task buildAngularApp(type: NpxTask) {
+  dependsOn npmInstall
+  command = 'ng'
+  args = ['build', '--prod']
+  inputs.dir(clientProjectDir)
+}
+
+processResources.dependsOn = [buildAngularApp]
+
+test {
+	useJUnitPlatform()
+}
