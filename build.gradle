@@ -22,6 +22,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.hamcrest:hamcrest:2.2'
 }
 
 def clientProjectDir = "${project.projectDir}/src/main/client"
@@ -37,7 +38,7 @@ node {
 task buildAngularApp(type: NpxTask) {
   dependsOn npmInstall
   command = 'ng'
-  args = ['build', '--prod']
+  args = ['build']
   inputs.dir(clientProjectDir)
 }
 

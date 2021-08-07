@@ -1,4 +1,5 @@
 # Roll the dice
 
 ## Running application
-./gradlew.bat bootRun
+- Run `./gradlew bootRun` in root directory
+- Navigate to http://localhost:8080 in browser
