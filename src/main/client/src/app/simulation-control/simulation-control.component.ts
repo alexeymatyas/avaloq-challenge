@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Simulation } from 'src/model/Simulation';
 import { DiceRollSimulationService } from '../dice-roll-simulation.service';
 
@@ -7,7 +7,7 @@ import { DiceRollSimulationService } from '../dice-roll-simulation.service';
   templateUrl: './simulation-control.component.html',
   styleUrls: ['./simulation-control.component.less']
 })
-export class SimulationControlComponent implements OnInit {
+export class SimulationControlComponent {
   diceNum: number = 3;
   diceSideNum: number = 6;
   rollNum: number = 100;
@@ -20,8 +20,4 @@ export class SimulationControlComponent implements OnInit {
     this.diceRollSimulationService.getNewSimulation(this.diceNum, this.diceSideNum, this.rollNum)
       .subscribe(simulation => this.onNewSimulation.emit(simulation));
   }
-
-  ngOnInit(): void {
-  }
-
 }

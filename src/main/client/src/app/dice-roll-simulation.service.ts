@@ -11,6 +11,10 @@ export class DiceRollSimulationService {
 
   constructor(private http: HttpClient) { }
 
+  getPreviousSimulations(): Observable<Simulation[]> {
+    return this.http.get<Simulation[]>(this.baseUrl);
+  }
+
   getNewSimulation(diceNum: number, diceSideNum: number, rollNum: number): Observable<Simulation> {
     return this.http.post<Simulation>(this.baseUrl, null, {
       params: {

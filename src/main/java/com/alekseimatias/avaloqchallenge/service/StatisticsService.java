@@ -41,8 +41,8 @@ public class StatisticsService {
             }
 
             BigDecimal relativePercentage = BigDecimal.valueOf(totalRollsByDiceSideSum)
-                    .divide(BigDecimal.valueOf(totalRolls), 2, RoundingMode.HALF_UP)
-                    .multiply(BigDecimal.valueOf(100));
+                .multiply(BigDecimal.valueOf(100))        
+                .divide(BigDecimal.valueOf(totalRolls), 2, RoundingMode.HALF_UP);
 
             distribution.put(diceSidesSum, relativePercentage);
         }

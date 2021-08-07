@@ -1,20 +1,22 @@
-<fieldset>
-  <legend>Simulation Control</legend>
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel title="Simulation Control">
+    <ng-template ngbPanelContent>
+      <p>
+        <label for="diceNum">Dice number: </label>
+        <input id="diceNum" [(ngModel)]="diceNum" placeholder="enter desired dice number here">
+      </p>
 
-  <p>
-    <label for="diceNum">Dice number: </label>
-    <input id="diceNum" [(ngModel)]="diceNum" placeholder="enter desired dice number here">
-  </p>
+      <p>
+        <label for="diceSideNum">Dice sides number: </label>
+        <input id="diceSideNum" [(ngModel)]="diceSideNum" placeholder="enter desired number of dice sides here">
+      </p>
 
-  <p>
-    <label for="diceSideNum">Dice sides number: </label>
-    <input id="diceSideNum" [(ngModel)]="diceSideNum" placeholder="enter desired number of dice sides here">
-  </p>
+      <p>
+        <label for="rollNum">Roll number: </label>
+        <input id="rollNum" [(ngModel)]="rollNum" placeholder="enter desired number of rolls here">
+      </p>
 
-  <p>
-    <label for="rollNum">Roll number: </label>
-    <input id="rollNum" [(ngModel)]="rollNum" placeholder="enter desired number of rolls here">
-  </p>
-
-  <button (click)="onRollButtonClick()">Roll the dice!</button>
-</fieldset>
+      <button (click)="onRollButtonClick()">Roll the dice!</button>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

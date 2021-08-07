@@ -1,2 +1,6 @@
-<app-simulation-control (onNewSimulation)="addSimulation($event)"></app-simulation-control>
-<app-simulations [simulations]="simulations"></app-simulations>
+<div class="app">
+  <div class="simulationControl">
+    <app-simulation-control (onNewSimulation)="addSimulation($event)"></app-simulation-control>
+  </div>
+  <app-simulation-tabs [simulations]="simulations" [statistics]="statistics"></app-simulation-tabs>
+</div>

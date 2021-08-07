@@ -1,0 +1,16 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>Executed Simulations</a>
+    <ng-template ngbNavContent>
+      <app-simulations [simulations]="simulations"></app-simulations>
+    </ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Statistics by dice and side number</a>
+    <ng-template ngbNavContent>
+      <app-statistics [statistics]="statistics"></app-statistics>
+    </ng-template>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>
+

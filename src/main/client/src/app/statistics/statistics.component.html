@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Dice number</th>
+    <th scope="col">Dice sides</th>
+    <th scope="col">Total simulations</th>
+    <th scope="col">Total rolls</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let statisticsElement of statistics; index as i" (click)="onStatisticsRowClick(statisticsElement)">
+    <td>{{ statisticsElement.diceNum }}</td>
+    <td>{{ statisticsElement.diceSideNum }}</td>
+    <td>{{ statisticsElement.totalSimulations }}</td>
+    <td>{{ statisticsElement.totalRolls }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div *ngIf="selectedStatistics">
+  <app-statistics-details [statistics]="selectedStatistics"></app-statistics-details>
+</div>

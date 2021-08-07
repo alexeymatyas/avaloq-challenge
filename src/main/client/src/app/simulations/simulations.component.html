@@ -1,2 +1,18 @@
-<h2>Executed simulations</h2>
-<p *ngFor="let simulation of simulations">{{simulation | json}}</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Dice number</th>
+    <th scope="col">Dice sides</th>
+    <th scope="col">Rolls number</th>
+    <th scope="col">Sides sum distribution</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let simulation of simulations; index as i">
+    <td>{{ simulation.diceNum }}</td>
+    <td>{{ simulation.diceSideNum }}</td>
+    <td>{{ simulation.rollNum }}</td>
+    <td>{{ simulation.totalsDistribution | json }}</td>
+  </tr>
+  </tbody>
+</table>
