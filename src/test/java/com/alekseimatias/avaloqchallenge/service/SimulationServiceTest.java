@@ -1,19 +1,21 @@
 package com.alekseimatias.avaloqchallenge.service;
 
-import org.junit.jupiter.api.BeforeAll;
+import com.alekseimatias.avaloqchallenge.dao.SimulationDAO;
+import com.alekseimatias.avaloqchallenge.model.Simulation;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.mockito.Mockito.mock;
 
 public class SimulationServiceTest {
-    private static SimulationService underTest;
+    private SimulationService underTest;
 
-    @BeforeAll
-    public static void setup() {
-        underTest = new SimulationService();
+    @BeforeEach
+    public void setup() {
+        SimulationDAO simulationDAOMock = mock(SimulationDAO.class);
+        underTest = new SimulationService(simulationDAOMock);
     }
 
     @Test
@@ -24,10 +26,9 @@ public class SimulationServiceTest {
         int rollNum = 100;
 
         // when
-        List<Integer> totals = underTest.getNewSimulationTotals(diceNum, diceSideNum, rollNum);
+        Simulation simulation = underTest.getNewSimulationDistribution(diceNum, diceSideNum, rollNum);
 
         // then
-        assertThat(totals, is(notNullValue()));
-        assertThat(totals.size(), is(equalTo(rollNum)));
+        assertThat(simulation.getTotalsDistribution(), is(notNullValue()));
     }
 }
