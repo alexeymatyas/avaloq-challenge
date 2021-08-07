@@ -1,2 +1,5 @@
 <h4>Relative distribution</h4>
-<div *ngIf="distribution">{{distribution.totalsDistribution | json}}</div>
+<div *ngIf="distribution">
+  <p>Total rolls: {{distribution.totalRolls}}</p>
+  <p>Distribution: {{distribution.totalsDistribution | json}}</p>
+</div>
