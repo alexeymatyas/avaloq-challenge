@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Simulation } from 'src/model/Simulation';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'my-app';
+  simulations: Simulation[] = [];
+
+  addSimulation(simulation: Simulation): void {
+    this.simulations.push(simulation);
+  }
 }
