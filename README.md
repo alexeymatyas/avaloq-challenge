@@ -7,10 +7,10 @@ This is all-in-one Spring Boot solution incorporating Database, backend-end and 
 - Navigate to http://localhost:8080 in browser
 
 ## Technology stack
-Storage - in memory H2 database
-Data access layer - JPA + Spring Data
-Service layer - Spring Web for RESTful webservices
-UI - Angular
+- Storage - in memory H2 database
+- Data access layer - JPA + Spring Data
+- Service layer - Spring Web for RESTful webservices
+- UI - Angular
 
 ## Decisions made
 1. In-memory H2 is chosen as the best option for quick prototyping of solution having storage layer. Not for Production use
